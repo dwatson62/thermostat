@@ -22,7 +22,7 @@ Thermostat.prototype.turnDown = function() {
 };
 
 Thermostat.prototype.resetTemp = function() {
-  this.reset;
+  this.temperature = 20;
 };
 
 Thermostat.prototype.powerSaveOff = function() {
@@ -43,6 +43,10 @@ Thermostat.prototype.changeColour = function() {
   else {
     this.colour = 'Yellow';
   };
+};
+
+Thermostat.prototype.update = function() {
+   document.getElementById("temp").innerHTML = thermostat.temperature;
 };
 
 thermostat = new Thermostat

@@ -1,11 +1,6 @@
 <html>
 <head>
   <script language='javascript' src='./src/Thermostat.js'></script>
-  <script>
-    Thermostat.prototype.update = function() {
-      document.getElementById("temp").innerHTML = thermostat.temperature;
-    };
-  </script>
 </head>
 <body>
   <button type='button' id='tempUp' onclick='thermostat.turnUp(), thermostat.update()'>Up</button>
