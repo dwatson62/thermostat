@@ -1,12 +1,21 @@
 <html>
 <head>
-  <script language='javascript' src='src/Thermostat.js'></script>
+  <script language='javascript' src='./src/Thermostat.js'></script>
+  <script>
+    Thermostat.prototype.update = function() {
+      document.getElementById("temp").innerHTML = thermostat.temperature;
+    };
+  </script>
 </head>
 <body>
+  <button type='button' id='tempUp' onclick='thermostat.turnUp(), thermostat.update()'>Up</button>
+  <button type='button' id='tempDown' onclick='thermostat.turnDown(), thermostat.update()'>Down</button>
+  <button type='button' id='powerOn' onclick='thermostat.powerSaveOn(), thermostat.update()'>On</button>
+  <button type='button' id='powerOff' onclick='thermostat.powerSaveOff(), thermostat.update()'>Off</button>
+  <button type='button' id='tempReset' onclick='thermostat.resetTemp(), thermostat.update()'>Reset</button>
   Thermostat temperature is
-<script language ='javascript'>
-    thermostat = new Thermostat();
-    document.write(thermostat.temperature);
-</script>
+  <div id="temp">
+    20
+  </div>
 </body>
 </html>

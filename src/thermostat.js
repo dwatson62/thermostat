@@ -10,7 +10,7 @@ Thermostat.prototype.turnUp = function() {
   }
   else if(this.powerSaving == false && this.temperature < 32) {
     this.temperature ++ ;
-  };
+  }
   this.changeColour();
 };
 
@@ -21,7 +21,7 @@ Thermostat.prototype.turnDown = function() {
   this.changeColour();
 };
 
-Thermostat.prototype.reset = function() {
+Thermostat.prototype.resetTemp = function() {
   this.reset;
 };
 
@@ -44,3 +44,5 @@ Thermostat.prototype.changeColour = function() {
     this.colour = 'Yellow';
   };
 };
+
+thermostat = new Thermostat
