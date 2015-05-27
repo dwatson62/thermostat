@@ -52,4 +52,20 @@ describe("Thermostat", function () {
       expect(thermostat.temperature).toEqual(20)
     });
   });
+
+  describe('Power saving mode', function() {
+    it('is switched on by default', function() {
+      expect(thermostat.powerSaving).toBe(true)
+    });
+    it('can be switched off', function() {
+      thermostat.powerSaveOff();
+      expect(thermostat.powerSaving).toBe(false)
+    });
+    it('can be switched back on', function() {
+      thermostat.powerSaveOff();
+      thermostat.powerSaveOn();
+      expect(thermostat.powerSaving).toBe(true)
+    });
+  });
+
 });
