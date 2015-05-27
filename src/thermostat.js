@@ -1,6 +1,7 @@
 function Thermostat() {
   this.temperature = 20;
   this.powerSaving = true;
+  this.colour = 'Yellow'
 };
 
 Thermostat.prototype.turnUp = function() {
@@ -10,12 +11,14 @@ Thermostat.prototype.turnUp = function() {
   else if(this.powerSaving == false && this.temperature < 32) {
     this.temperature ++ ;
   };
+  this.changeColour();
 };
 
 Thermostat.prototype.turnDown = function() {
   if(this.temperature > 10) {
     this.temperature -- ;
   };
+  this.changeColour();
 };
 
 Thermostat.prototype.reset = function() {
@@ -28,4 +31,16 @@ Thermostat.prototype.powerSaveOff = function() {
 
 Thermostat.prototype.powerSaveOn = function() {
   this.powerSaving = true;
+};
+
+Thermostat.prototype.changeColour = function() {
+  if(this.temperature < 18) {
+    this.colour = 'Green';
+  }
+  else if(this.temperature > 24) {
+    this.colour = 'Red';
+  }
+  else {
+    this.colour = 'Yellow';
+  };
 };

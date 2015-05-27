@@ -102,4 +102,22 @@ describe("Thermostat", function () {
     });
   });
 
+  describe('The thermostat colour is', function () {
+    it('Green when less than 18 degrees', function () {
+      for(i = 1; i < 4; i ++) {
+        thermostat.turnDown();
+      };
+      expect(thermostat.colour).toEqual('Green')
+    });
+    it('Red when greater than 24 degrees', function () {
+      for(i = 1; i < 6; i ++) {
+        thermostat.turnUp();
+      };
+      expect(thermostat.colour).toEqual('Red')
+    });
+    it('Yellow for any other temperature', function () {
+      expect(thermostat.colour).toEqual('Yellow')
+    });
+  });
+
 });
