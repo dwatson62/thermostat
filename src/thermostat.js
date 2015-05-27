@@ -46,6 +46,7 @@ Thermostat.prototype.changeColour = function() {
 };
 
 Thermostat.prototype.update = function() {
+   document.getElementById("temp").style.color = this.colour;
    document.getElementById("temp").innerHTML = thermostat.temperature;
 };
 
