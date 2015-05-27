@@ -68,4 +68,38 @@ describe("Thermostat", function () {
     });
   });
 
+  describe('During power save mode', function() {
+    it('the maximum temperature is 25 degrees', function() {
+      for(i = 1; i < 6; i ++) {
+        thermostat.turnUp();
+      };
+      expect(thermostat.temperature).toEqual(25)
+    });
+    it('the temperature cannot go higher than 25 degrees', function() {
+      for(i = 1; i < 7; i ++) {
+        thermostat.turnUp();
+      };
+      expect(thermostat.temperature).toEqual(25)
+    });
+  });
+
+  describe('When power save mode is off', function() {
+    beforeEach(function () {
+      thermostat.powerSaveOff();
+    });
+
+    it('the maximum temperature is 32 degrees', function () {
+      for(i = 1; i < 13; i ++) {
+        thermostat.turnUp();
+      };
+      expect(thermostat.temperature).toEqual(32)
+    });
+    it('the temperature cannot go higher than 32 degrees', function() {
+      for(i = 1; i < 14; i ++) {
+        thermostat.turnUp();
+      };
+      expect(thermostat.temperature).toEqual(32)
+    });
+  });
+
 });

@@ -4,7 +4,12 @@ function Thermostat() {
 };
 
 Thermostat.prototype.turnUp = function() {
-  this.temperature ++ ;
+  if(this.powerSaving == true && this.temperature < 25) {
+    this.temperature ++ ;
+  }
+  else if(this.powerSaving == false && this.temperature < 32) {
+    this.temperature ++ ;
+  };
 };
 
 Thermostat.prototype.turnDown = function() {
