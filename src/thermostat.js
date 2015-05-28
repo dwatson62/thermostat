@@ -51,11 +51,3 @@ Thermostat.prototype.changeColour = function() {
     this.colour = 'Yellow';
   };
 };
-
-Thermostat.prototype.update = function() {
-  // document.body.style.backgroundImage = "url('http://craigmcn.ca/wp-content/uploads/2012/09/old-man.jpg')";
-   document.body.style.background = this.colour;
-   document.getElementById("temp").innerHTML = thermostat.temperature;
-};
-
-thermostat = new Thermostat
