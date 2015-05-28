@@ -26,12 +26,18 @@ Thermostat.prototype.resetTemp = function() {
   this.changeColour();
 };
 
-Thermostat.prototype.powerSaveOff = function() {
-  this.powerSaving = false;
-};
-
-Thermostat.prototype.powerSaveOn = function() {
-  this.powerSaving = true;
+Thermostat.prototype.powerSave = function() {
+  if(this.powerSaving == true) {
+    this.powerSaving = false;
+  }
+  else
+  {
+    this.powerSaving = true;
+    if(this.temperature > 25) {
+      this.temperature = 25;
+      this.changeColour();
+    };
+  };
 };
 
 Thermostat.prototype.changeColour = function() {
@@ -47,8 +53,9 @@ Thermostat.prototype.changeColour = function() {
 };
 
 Thermostat.prototype.update = function() {
+  // document.body.style.backgroundImage = "url('http://craigmcn.ca/wp-content/uploads/2012/09/old-man.jpg')";
    document.body.style.background = this.colour;
-   document.getElementById("temp").innerHTML = thermostat.temperature + " " + this.colour;
+   document.getElementById("temp").innerHTML = thermostat.temperature;
 };
 
 thermostat = new Thermostat

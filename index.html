@@ -1,16 +1,42 @@
 <html>
 <head>
-  <script language='javascript' src='./src/Thermostat.js'></script>
+  <script src='src/Thermostat.js'></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
-<body>
+<header>
+  <center><h1>Grumpy Old Man Thermostat</h1></center>
+</header>
+<body bgcolor='yellow'>
+  <center>
+  <br>
+  <br>
   <button type='button' id='tempUp' onclick='thermostat.turnUp(), thermostat.update()'>Up</button>
   <button type='button' id='tempDown' onclick='thermostat.turnDown(), thermostat.update()'>Down</button>
-  <button type='button' id='powerOn' onclick='thermostat.powerSaveOn(), thermostat.update()'>On</button>
-  <button type='button' id='powerOff' onclick='thermostat.powerSaveOff(), thermostat.update()'>Off</button>
   <button type='button' id='tempReset' onclick='thermostat.resetTemp(), thermostat.update()'>Reset</button>
+  <input type='checkbox' id='checkBox' checked='true' value='power save' onclick='thermostat.powerSave(), thermostat.update()'>Power Save
   <br>
-  Thermostat temperature is
+  <h3>Thermostat temperature is</h3>
   <div id="temp">
+    20
   </div>
+  <br>
+  <img src='http://craigmcn.ca/wp-content/uploads/2012/09/old-man.jpg'>
+  <script>
+  $(document).ready(function() {
+    $('#tempUp').click(function() {
+      alert('Too hot! Turn me down!');
+    });
+    $('#tempDown').click(function() {
+      alert('Its too cold! Turn me back up!');
+    });
+    $('#tempReset').mouseenter(function() {
+      alert("Don't even think about it!");
+    });
+    $('#checkBox').click(function() {
+      alert("Leave that alone!");
+    });
+  });
+  </script>
+  </center>
 </body>
 </html>
